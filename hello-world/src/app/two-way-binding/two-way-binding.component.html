@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <p class="alert alert-success">Welcome to two-way binding!!</p>
+    </div>
+  </div>
+  <div>
+    <div class="row">
+      <div class="col-sm-2">
+        <label>Input Text Box</label>
+      </div>
+      <div class="col-sm-3">
+        <input type="text" [(ngModel)]="inputTextBoxModel" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        {{inputTextBoxModel}}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+      <label>Input Button</label>
+    </div>
+    <div class="col-sm-3">
+      <input type="button" name="Click here!" value="Click Here!" (click)="onButtonClick($event)" [disabled]="inputTextBoxModel.length ==0"/>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <button class="btn btn-primary" (click)="toggleParagraph()">Click HERE!</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6" *ngIf="shouldParagraphDisplay">
+      <p>This is secret text which will hide and show</p>
+    </div>
+  </div>
+  <div class="col-md-6" *ngFor="let counter of counterArray; let i = index">
+    <!-- IF you have hypen (-) in your class name or the style name then it is mandatory to use the apostrophe (') to make the attribute directive work in Angular 9-->
+    <div class="row">
+      <div [ngStyle]="{'background-color':getColor(i),fontSize:'10pt'}" [ngClass]="{whitetext:i >= 5}"> Click number {{counter}} and {{i+1}}</div></div>
+
+  </div>
+</div>
+
