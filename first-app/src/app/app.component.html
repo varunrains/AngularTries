@@ -1,0 +1,8 @@
+<header (headerClick)="headerClickHandler($event)"></header>
+<div class="container">
+  <div class="row"><div class="col-md-12">
+    <recipes *ngIf="showRecipeSection"></recipes>
+    <shopping-list *ngIf="!showRecipeSection"></shopping-list>
+</div></div>
+</div>
+

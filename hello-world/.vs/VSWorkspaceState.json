@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\e2e",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\hello-directive",
+    "\\src\\app\\warningComponent"
+  ],
+  "SelectedNode": "\\src\\app\\app.component.html",
+  "PreviewInSolutionExplorer": false
+}

@@ -6,7 +6,13 @@
       <strong>Success!</strong> Indicates a successful or positive action.
     </div>-->
   </div>
-  <hello-directive></hello-directive>
+  <button class="btn btn-primary" (click)="onButtonClickForNgChangeDemo()">onButtonClickForNgChangeDemo</button>
+  <button class="btn btn-primary" (click)="onButtonClickForDoCheckDemo()">onButtonClickForDoCheckDemo</button>
+
+  <button class="btn btn-danger" (click)="onButtonClickForOnDestroy()">onButtonClickForOnDestroy</button>
+  <!--<hello-directive [inputElement]="{'name':'vv','type':'sdf','content':'sdf'}"></hello-directive>-->
+  
+  <hello-directive [inputElemen]="simpleText" *ngIf="toggleComponent"><p #contentchilddemo> NG CONTENT INIT DEMO </p></hello-directive>
   <!--<two-way-binding *ngFor="let arrayd of inputArray"> </two-way-binding>-->
   <!--<warning></warning>
   <app-success-component></app-success-component>-->

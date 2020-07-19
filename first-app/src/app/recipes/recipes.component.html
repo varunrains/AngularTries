@@ -1,0 +1,8 @@
+<div class="row">
+  <div class="col-md-5">
+    <recipe-list (recipeDetails)="recipeDetailHandler($event)"></recipe-list>
+  </div>
+  <div class="col-md-7">
+    <recipe-detail [recipe]="recipeDetail" *ngIf="!!recipeDetail"></recipe-detail>
+  </div>
+</div>

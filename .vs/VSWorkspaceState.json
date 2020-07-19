@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\hello-world",
+    "\\hello-world\\src",
+    "\\hello-world\\src\\app",
+    "\\hello-world\\src\\app\\hello-directive",
+    "\\hello-world\\src\\app\\success-component",
+    "\\hello-world\\src\\app\\two-way-binding",
+    "\\hello-world\\src\\app\\warningComponent",
+    "\\hello-world\\src\\assets",
+    "\\hello-world\\src\\environments"
+  ],
+  "SelectedNode": "\\hello-world\\src\\app\\hello-directive\\hello-directive.component.html",
+  "PreviewInSolutionExplorer": false
+}

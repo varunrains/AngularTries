@@ -1,0 +1,25 @@
+<h1>Gamer!!</h1>
+<div class="container">
+
+
+  <!--<div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-primary" (click)="onStartButtonClick()">START</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-danger" (click)="onStopButtonClick()">STOP</button>
+    </div>
+  </div>-->
+  <div class="row">
+    <app-game-control (gameStarted)="gameStarteds($event)"></app-game-control>
+  </div>
+  <div class="row" *ngIf="counterValue % 2 === 0">
+    <app-even [inputValue]="counterValue"></app-even>
+  </div>
+  <div class="row" *ngIf="counterValue % 2 === 1">
+    <app-odd [inputValue]="counterValue"></app-odd>
+  </div>
+
+</div>

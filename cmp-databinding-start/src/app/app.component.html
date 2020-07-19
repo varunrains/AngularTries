@@ -1,0 +1,32 @@
+<!--<app-add-server></app-add-server>-->
+
+<!--<div class="container">
+  <div class="row">
+    <app-cockpit></app-cockpit>
+    <div class="col-xs-12">
+      <div class="panel panel-default" *ngFor="let serverElements of serverElements">
+        <div class="panel-heading"></div>
+        <div class="panel-body"><app-server-element></app-server-element></div>
+      </div>
+    </div>
+  </div>
+</div>-->
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-xs-12">
+      <app-cockpit (serverCreated)="onServerAdded($event)" (bpCreated)="onBluePrintAdded($event)"></app-cockpit>
+    </div>
+  </div>
+  <div class="row"></div>
+  <div class="col-xs-12">
+    <app-server-element *ngFor="let serverElement of serverElements"
+                        [srvElement]="serverElement">
+      <p>
+        <strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content }}</strong>
+        <em *ngIf="serverElement.type === 'blueprint'" style="color: blue">{{ serverElement.content }}</em>
+      </p>
+    </app-server-element>
+  </div>
+</div>
