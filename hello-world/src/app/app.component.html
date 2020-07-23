@@ -10,10 +10,36 @@
   <button class="btn btn-primary" (click)="onButtonClickForDoCheckDemo()">onButtonClickForDoCheckDemo</button>
 
   <button class="btn btn-danger" (click)="onButtonClickForOnDestroy()">onButtonClickForOnDestroy</button>
+  <button class="btn btn-success" (click)="onUnlessDirectiveClick()">UNLESS DIRECTIVE</button>
   <!--<hello-directive [inputElement]="{'name':'vv','type':'sdf','content':'sdf'}"></hello-directive>-->
-  
+
   <hello-directive [inputElemen]="simpleText" *ngIf="toggleComponent"><p #contentchilddemo> NG CONTENT INIT DEMO </p></hello-directive>
+
+  <!-- Attribute directives, selector should have [] brackets and while applying you can use it like normal attribute directive -->
+  <p appBasicHighlight> THIS is an example for DIRECTIVES!!!</p>
+
+  <p appBetterHighlight defaultColour="yellow" [highlightColour]="'blue'"> THIS is an example for BETTER APPROACH OF DIRECTIVES!!!</p>
+
+  <!-- You can also use alias -->
+  <p [appBetterHighlight]="'yellow'" [highlightColour]="'blue'"> THIS is an example for BETTER APPROACH OF DIRECTIVES!!!</p>
   <!--<two-way-binding *ngFor="let arrayd of inputArray"> </two-way-binding>-->
   <!--<warning></warning>
   <app-success-component></app-success-component>-->
+  <!-- Unless directive invert of ngIf structural directive-->
+  <p *appUnless="unlessDirectiveToggle">THIS IS UNLESS DIRECTIVE DEMO</p>
+
+  <p> NG SWITCH DEMO</p>
+  <input type="text" class="input-group" (change)="changeEventHandler($event)" />
+
+
+  <!-- Demo for ngSwitch Structural Directives-->
+  <div [ngSwitch]="switchValue">
+    <p *ngSwitchCase="5"> The value is 5</p>
+    <p *ngSwitchCase="10"> The value is 10</p>
+    <p *ngSwitchCase="15"> The value is 15</p>
+    <p *ngSwitchDefault> Default value is shown!!</p>
+  </div>
+
+
+
 </div>

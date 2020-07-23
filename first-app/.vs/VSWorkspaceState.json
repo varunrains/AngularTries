@@ -11,5 +11,6 @@
     "\\src\\app\\shopping-list",
     "\\src\\app\\shopping-list\\shopping-list-edit"
   ],
+  "SelectedNode": "\\src\\app\\shared\\dropdown.directive.ts",
   "PreviewInSolutionExplorer": false
 }
