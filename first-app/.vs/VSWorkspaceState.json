@@ -7,10 +7,9 @@
     "\\src\\app\\recipes\\recipe-detail",
     "\\src\\app\\recipes\\recipe-list",
     "\\src\\app\\recipes\\recipe-list\\recipe-item",
-    "\\src\\app\\shared",
     "\\src\\app\\shopping-list",
     "\\src\\app\\shopping-list\\shopping-list-edit"
   ],
-  "SelectedNode": "\\src\\app\\shared\\dropdown.directive.ts",
+  "SelectedNode": "\\src\\app\\recipes\\recipe-detail\\recipe-detail.component.html",
   "PreviewInSolutionExplorer": false
 }

@@ -7,7 +7,7 @@
 <hr/>
 <div class="row">
   <div class="col-xs-12" *ngFor="let recipe of recipes">
-    <recipe-item [recipeItem]="recipe" (recipeDetail)="onRecipeDetailHandler($event)"></recipe-item>
+    <recipe-item [recipeItem]="recipe"></recipe-item>
   </div>
 </div>
 
