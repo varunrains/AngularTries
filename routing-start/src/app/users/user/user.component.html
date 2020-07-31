@@ -1,2 +1,6 @@
-<p>User with ID _ID_ loaded.</p>
-<p>User name is _NAME_</p>
+<p>User with ID {{user.id}}</p>
+<p>User name is {{user.name}}</p>
+<hr/>
+<br />
+<p> Navigate to specific user from the page</p>
+<a [routerLink]="['/users',10,'max']">Navigate_To_10_Max</a>
