@@ -6,18 +6,18 @@ import { Directive, ElementRef, HostListener, HostBinding } from '@angular/core'
 
 export class DropDownDirective {
 
-  @HostBinding('style.backgroundColor') changeColor = 'yellow';
+  //@HostBinding('style.backgroundColor') changeColor = 'yellow';
 
   //You can also do this by using HostBinding which is even simpler in approach
   @HostListener('click') clickEvent = () => {
 
     if (this.elementRef.nativeElement.className.search("open") === -1) {
-      this.changeColor = 'red';
+      //this.changeColor = 'red';
       this.elementRef.nativeElement.classList.add("open");
       
     } else {
       this.elementRef.nativeElement.classList.remove("open");
-      this.changeColor = 'blue';
+      //this.changeColor = 'blue';
     }
   };
 

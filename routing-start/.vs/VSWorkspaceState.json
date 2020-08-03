@@ -11,6 +11,6 @@
     "\\src\\app\\users\\user",
     "\\src\\assets"
   ],
-  "SelectedNode": "\\src\\app\\error-page\\error-page.component.html",
+  "SelectedNode": "\\src\\app\\auth-guard.service.ts",
   "PreviewInSolutionExplorer": false
 }

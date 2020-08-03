@@ -9,12 +9,12 @@ export class AppComponent {
   showRecipeSection: boolean = true;
   showShoppingListSection: boolean;
 
-  headerClickHandler = (inputData: any) => {
-    if (inputData.clickType === "recipe") {
-      this.showRecipeSection = true;
-    } else if (inputData.clickType === "shopping") {
-      this.showShoppingListSection = true;
-      this.showRecipeSection = !this.showRecipeSection;
-    }
-  }
+  //headerClickHandler = (inputData: any) => {
+  //  if (inputData.clickType === "recipe") {
+  //    this.showRecipeSection = true;
+  //  } else if (inputData.clickType === "shopping") {
+  //    this.showShoppingListSection = true;
+  //    this.showRecipeSection = !this.showRecipeSection;
+  //  }
+  //}
 }

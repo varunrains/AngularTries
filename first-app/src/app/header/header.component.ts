@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'header',
@@ -6,15 +6,15 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  @Output('headerClick') shoppingListEditor = new EventEmitter<{clickType: string}>();
+  //@Output('headerClick') shoppingListEditor = new EventEmitter<{clickType: string}>();
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  onHeaderClick = (clickType: string) => {
-    this.shoppingListEditor.emit({clickType: clickType});
-  }
+  //onHeaderClick = (clickType: string) => {
+  //  this.shoppingListEditor.emit({clickType: clickType});
+  //}
 
 }
