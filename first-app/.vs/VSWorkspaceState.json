@@ -5,12 +5,12 @@
     "\\src\\app",
     "\\src\\app\\recipes",
     "\\src\\app\\recipes\\recipe-edit",
-    "\\src\\app\\recipes\\recipe-list",
-    "\\src\\app\\recipes\\recipe-list\\recipe-item",
+    "\\src\\app\\recipes\\recipe-start",
+    "\\src\\app\\shared",
     "\\src\\app\\shopping-list",
     "\\src\\app\\shopping-list\\shopping-list-edit",
     "\\src\\environments"
   ],
-  "SelectedNode": "\\src\\app\\app.component.html",
+  "SelectedNode": "\\src\\app\\recipes\\recipe-edit\\recipe-edit.component.html",
   "PreviewInSolutionExplorer": false
 }

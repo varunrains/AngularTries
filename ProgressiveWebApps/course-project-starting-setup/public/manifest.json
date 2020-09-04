@@ -1,0 +1,50 @@
+{
+  "name": "PG Mates Betting",
+  "short_name": "PG Mates",
+  "icons": [
+    {
+      "src": "/src/images/icons/app-icon-48x48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "/src/images/icons/app-icon-96x96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "/src/images/icons/app-icon-144x144.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "/src/images/icons/app-icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/src/images/icons/app-icon-256x256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "/src/images/icons/app-icon-384x384.png",
+      "type": "image/png",
+      "sizes": "384x384"
+    },
+    {
+      "src": "/src/images/icons/app-icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/index.html",
+  "scope": ".",
+  "display": "standalone", // fullscreen (native app), minimal-ui (like standalone), browser (like an normal web-page in browser)
+  "orientation": "portrait-primary", //any (allows user to switch), portrait, landscape, portrait-primary (does not allow the user to switch, this blocks rotation)
+  "background_color": "#fff", //(white color)
+  "theme_color": "#3f51b5", //overall page color of the PWA
+  "description": "A simple betting site for PG mates",
+  "dir": "ltr", //Left to write-you can change to rtl depending on the country on how they read the text 
+  "lang": "en-US" //Default language of your application
+}
