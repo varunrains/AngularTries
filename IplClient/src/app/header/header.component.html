@@ -1,0 +1,30 @@
+<div id="mySidenav" class="sidenav bg-dark" *ngIf="isSideNavVisible">
+  <!--<a href="#" class="closebtn" (click)="toggleSideBar()">&#9776;</a>-->
+  <button type="button" class="btn btn-primary closebtn" (click)="toggleSideBar()"><i class="fa fa-bars"></i></button>
+  <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>&nbsp;Bet</a>
+  <a href="#"><i class="fa fa-book" aria-hidden="true"></i>&nbsp;My Bets</a>
+  <a href="#"><i class="fa fa-history" aria-hidden="true"></i>&nbsp;History</a>
+  <a href="#"><i class="fa fa-money" aria-hidden="true"></i>&nbsp;Wallet - 10</a>
+</div>
+<nav class="navbar bg-dark navbar-dark">
+
+    <!--<div class="navbar-header">
+      <a href="#" class="navbar-brand">Bet to WIN!</a>
+    </div>-->
+
+  
+    <ul class="navbar-nav mr-1 ml-0">
+      <li class="nav-item">
+        <button type="button" class="btn btn-primary"  (click)="toggleSideBar()"><i class="fa fa-bars"></i></button>
+      </li></ul>
+    <ul class="navbar-nav mr-auto">
+  <li class="nav-item">
+    <button type="button" class="btn btn-primary" (click)="toggleSideBar()"><i class="fa fa-home"></i></button>
+  </li>
+  </ul>
+      <ul class="navbar-nav navbar-right">
+        <li>
+          <a style="cursor: pointer;color: white" (click)="onLogout()"><i class="fa fa-sign-out" aria-hidden="true"></i>Out</a>
+        </li>
+      </ul>
+</nav>

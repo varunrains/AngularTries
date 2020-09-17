@@ -1,42 +1,34 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { HttpClientModule } from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './header/header.component';
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
-import { ShoppingListEditComponent } from './shopping-list/shopping-list-edit/shopping-list-edit.component';
-import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
-import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
-import { RecipesComponent } from './recipes/recipes.component';
-import { DropDownDirective } from './shared/dropdown.directive';
-import { ShoppingListService } from "./shopping-list/shopping-list.service";
-import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
-import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { ShoppingListModule } from './shopping-list/shopping-list.module';
+import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core.module';
+//import { LoggingService } from './logging.service';
+//import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ShoppingListComponent,
-    RecipeListComponent,
-    ShoppingListEditComponent,
-    RecipeDetailComponent,
-    RecipeItemComponent,
-    RecipesComponent,
-    DropDownDirective,
-    RecipeStartComponent,
-    RecipeEditComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    HttpClientModule,
     AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule
+    //Now the RecipesModule,ShoppingListModule,AuthModule is being loaded Lazily
+    //and hence it is not required here
+    //RecipesModule,
+    //ShoppingListModule,
+    SharedModule,
+    CoreModule
+    //AuthModule
   ],
-  providers: [ShoppingListService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+ // providers: [LoggingService]
 })
 export class AppModule { }

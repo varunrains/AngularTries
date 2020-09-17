@@ -2,19 +2,20 @@ import { Component, OnInit , OnDestroy} from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingListService } from './shopping-list.service';
 import { Subscription } from 'rxjs';
+import { LoggingService } from '../logging.service';
 
 @Component({
   selector: 'shopping-list',
   templateUrl: './shopping-list.component.html',
   styleUrls: ['./shopping-list.component.css'],
-  providers:[]
+  //providers: [LoggingService]
 })
 export class ShoppingListComponent implements OnInit, OnDestroy {
   
   ingredients: Ingredient[] = [];
   subscription: Subscription;
 
-  constructor(private shoppingListService: ShoppingListService) {
+  constructor(private shoppingListService: ShoppingListService, private loggingService: LoggingService) {
    this.subscription =  this.shoppingListService.ingredientAdded.subscribe((ingredients: Ingredient[]) => {
       this.ingredients.concat(ingredients);
     });
@@ -23,6 +24,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
   //All initialization in ngInit is a good practice
   ngOnInit() {
     this.ingredients = this.shoppingListService.getIngredients();
+    this.loggingService.printLog('Hello from Shopping List component ngOnInit');
   }
 
   onEditItem(index: number) {

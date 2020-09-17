@@ -6,7 +6,9 @@ import { RecipeService } from './recipe.service';
   selector: 'recipes',
   templateUrl: './recipes.component.html',
   styleUrls: ['./recipes.component.css'],
-  providers:[RecipeService]
+  //If you navigate to shopping component and then come back to recipe componenet then the recipe service will be new
+  //providers:[RecipeService]
+  
 })
 
 export class RecipesComponent implements OnInit{

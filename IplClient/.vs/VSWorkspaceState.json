@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\e2e",
+    "\\e2e\\src",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\header",
+    "\\src\\app\\side-nav"
+  ],
+  "SelectedNode": "\\src\\app\\header\\header.component.html",
+  "PreviewInSolutionExplorer": false
+}

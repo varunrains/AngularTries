@@ -1,0 +1,57 @@
+{
+  "$schema": "./node_modules/@angular/service-worker/config/schema.json",
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      //Here prefetch will download and put in to a cache
+      "installMode": "prefetch",
+      "resources": {
+        "files": [
+          "/favicon.ico",
+          "/index.html",
+          "/manifest.webmanifest",
+          // these are pattern /* or /** any folder structure
+          "/*.css",
+          "/*.js"
+        ],
+        //You can specify the url's to cache it through the SW
+        "urls": [ "https://fonts.googleapis.com/css?family=Oswald:300,700" ]
+      }
+    },
+    {
+      "name": "assets",
+      //The alternative to 'prefetch' is lazy
+      "installMode": "lazy",
+      //update mode will be used if you install a new application in the
+      //server
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/assets/**",
+          "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
+        ]
+      }
+    }
+  ],
+  //group of dynamic data
+  //Typically the response from API's
+  "dataGroups": [
+    {
+      "name": "posts",
+      "urls": [ "https://jsonplaceholder.typicode.com/posts" ],
+      "cacheConfig": {
+        //This means how many response can be cached
+        "maxSize": 5,
+        //maxAge can be 1d, 10m day and min
+        "maxAge": "6h",
+        //How long to wait for cache to be used
+        "timeout": "10s",
+        //freshness will tell to use the cache only
+        //in offline mode, performance will straight away
+        //use cache after reaching the time-out.
+        "strategy": "freshness"
+      }
+    }
+  ]
+}
