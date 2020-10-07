@@ -70,7 +70,7 @@ export class AuthService {
   }
 
   private handleAuthentication(email: string, token: string, expiresIn: number, userId: string) {
-    //getTime in miliseconds , expiresIn is a string and in milliseconds
+    //getTime in miliseconds , expiresIn is in seconds and convert it to milliseconds to add
     const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
     const user = new User(email, userId, token, expirationDate);
     this.user.next(user);
@@ -111,8 +111,9 @@ export class AuthService {
   }
 
   autoLogout(expirationDuration: number) {
-    this.timeOutReference =  setTimeout(() => {
-      this.logout();
-    }, expirationDuration)
+    this.timeOutReference = setTimeout(() => {
+        this.logout();
+      },
+      expirationDuration);
   }
 }

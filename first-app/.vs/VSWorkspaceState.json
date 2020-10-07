@@ -4,10 +4,13 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\auth",
-    "\\src\\app\\header",
+    "\\src\\app\\recipes",
+    "\\src\\app\\recipes\\recipe-edit",
     "\\src\\app\\shared",
+    "\\src\\app\\shared\\alert",
+    "\\src\\app\\shared\\loading-spinner",
     "\\src\\app\\shopping-list"
   ],
-  "SelectedNode": "\\src\\app\\header\\header.component.html",
+  "SelectedNode": "\\src\\app\\recipes\\recipes-routing.module.ts",
   "PreviewInSolutionExplorer": false
 }

@@ -1,0 +1,141 @@
+{
+  "configVersion": 1,
+  "timestamp": 1601997339088,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/5-es2015.0d672b1b158bf573601b.js",
+        "/5-es5.0d672b1b158bf573601b.js",
+        "/favicon.ico",
+        "/index.html",
+        "/main-es2015.d10cda489685c2058ac2.js",
+        "/main-es5.d10cda489685c2058ac2.js",
+        "/manifest.webmanifest",
+        "/polyfills-es2015.f332a089ad1600448873.js",
+        "/polyfills-es5.177e85a9724683782539.js",
+        "/runtime-es2015.029b12cabcddbd814f6e.js",
+        "/runtime-es5.029b12cabcddbd814f6e.js",
+        "/scripts.4800cfdd1d7b63ae0fcc.js",
+        "/styles.7ec8827c12efaa16a028.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/assets/icons/CSK.png",
+        "/assets/icons/DC.png",
+        "/assets/icons/KKR.png",
+        "/assets/icons/KXIP.png",
+        "/assets/icons/MI.png",
+        "/assets/icons/RCB.png",
+        "/assets/icons/RR.png",
+        "/assets/icons/SRH.png",
+        "/assets/icons/betfire.png",
+        "/assets/icons/date.svg",
+        "/assets/icons/dream11.png",
+        "/assets/icons/fire.gif",
+        "/assets/icons/google.svg",
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-16x16.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-32x32.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/icons/rupee.jpg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "matchDetails",
+      "patterns": [
+        "\\/api\\/matches\\/GetMatchDetails"
+      ],
+      "strategy": "performance",
+      "maxSize": 3,
+      "maxAge": 864000000,
+      "timeoutMs": 10000,
+      "version": 1
+    },
+    {
+      "name": "historyDetails",
+      "patterns": [
+        "\\/api\\/bets\\/GetBettingHistory"
+      ],
+      "strategy": "performance",
+      "maxSize": 3,
+      "maxAge": 43200000,
+      "timeoutMs": 10000,
+      "version": 1
+    }
+  ],
+  "hashTable": {
+    "/5-es2015.0d672b1b158bf573601b.js": "88f31ce978606d477df11e95297fb0ec9ffd708b",
+    "/5-es5.0d672b1b158bf573601b.js": "a58ce610a66124b7bb78fcc34764b6a2763b9c95",
+    "/assets/icons/CSK.png": "e67d2c1c837d973a0be7d0a3c6cbe65999d2a025",
+    "/assets/icons/DC.png": "bd880639a26228320e52c14c18d61ccd878c918f",
+    "/assets/icons/KKR.png": "c60b64c26426344894c8e92f1020868d7bcd2f1b",
+    "/assets/icons/KXIP.png": "930e497d2f20a8890f119ffb79452e923543adc8",
+    "/assets/icons/MI.png": "cc625c7adcd450126261f75b4060fa423f87a8e5",
+    "/assets/icons/RCB.png": "97368c7527c41ad95252b4137dbfb6373a1e6fff",
+    "/assets/icons/RR.png": "aece9fb63e755cf554097dc01db230ef3f5a7e96",
+    "/assets/icons/SRH.png": "92b7c775a6448943fbbe0a606b03a0ef0756e45e",
+    "/assets/icons/betfire.png": "24bbbd5dcadd4fe91ab461caebd62a4fc87407a9",
+    "/assets/icons/date.svg": "3b15a8e5f4ddd562aac9683b5f36ecc112d7b0d2",
+    "/assets/icons/dream11.png": "0812c66e74a10e2500d6de70b20209ec8309b299",
+    "/assets/icons/fire.gif": "6afc553b64e70915e056993411b311872e93d4d3",
+    "/assets/icons/google.svg": "c61f6762d15b2c325843ae8c2474341ed52fb889",
+    "/assets/icons/icon-128x128.png": "3ebcda34ef465e039f67d815280138850583ab9b",
+    "/assets/icons/icon-144x144.png": "a4d4955417adf36fa934b2befe88f97f4a809710",
+    "/assets/icons/icon-152x152.png": "ae850fa4aebe1e19c56eb37300256d4b01b3ceeb",
+    "/assets/icons/icon-16x16.png": "69d38264414338c1016095a1669298472bffa83b",
+    "/assets/icons/icon-192x192.png": "ebdc34b428a45db0d8d1042e3e13f170ad9ec6d1",
+    "/assets/icons/icon-32x32.png": "5bbcbc34471681cf9bbd3b9d9b260c49d3ed0781",
+    "/assets/icons/icon-384x384.png": "3a0714c62bf2f528581d3bd9905ca67ca9a804f3",
+    "/assets/icons/icon-512x512.png": "39230874cf571713341e1e53d973babe3d9e4c84",
+    "/assets/icons/icon-72x72.png": "0ba20e7902f6b8e039a1dba4060ae5c2519b7a89",
+    "/assets/icons/icon-96x96.png": "052525de019d31c0afc0a1f1e10aac1da695d7b2",
+    "/assets/icons/rupee.jpg": "b0ed4008077d112545b6454af948a41f02b10115",
+    "/favicon.ico": "845a581e05b51b8cad063b134dce798065a6fa3a",
+    "/index.html": "3169446c12efcecde0a056074ff31754bf5bc8a5",
+    "/main-es2015.d10cda489685c2058ac2.js": "eb0db127d48afec0d2df6585f987436040d791c1",
+    "/main-es5.d10cda489685c2058ac2.js": "57d393e0620bc2f7ac863a2844e2aaaa3fb9f142",
+    "/manifest.webmanifest": "a1f4d00807d12ee6fb4ba5d5bd757f2412d8734e",
+    "/polyfills-es2015.f332a089ad1600448873.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
+    "/polyfills-es5.177e85a9724683782539.js": "8aa26ea87b9958c6bd13b7c257c0e9940438e684",
+    "/runtime-es2015.029b12cabcddbd814f6e.js": "8eb26b6be1340bf827ebf75a365684a27dd09dda",
+    "/runtime-es5.029b12cabcddbd814f6e.js": "e33f2b7dc5ba38ef8d941aeb93860a1cae7e2aac",
+    "/scripts.4800cfdd1d7b63ae0fcc.js": "7365ae88a7dbbdf35264b04a874c7f02967a2bfe",
+    "/styles.7ec8827c12efaa16a028.css": "75021823534866837ac4d09884e07c9dec50eda5"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}

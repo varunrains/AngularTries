@@ -1,13 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\e2e",
-    "\\e2e\\src",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\header",
-    "\\src\\app\\side-nav"
+    "\\src\\app\\admin",
+    "\\src\\app\\admin\\update-result",
+    "\\src\\app\\change-password",
+    "\\src\\app\\helpers",
+    "\\src\\app\\login",
+    "\\src\\app\\main-bet",
+    "\\src\\app\\models"
   ],
-  "SelectedNode": "\\src\\app\\header\\header.component.html",
+  "SelectedNode": "\\src\\app\\helpers\\EntityHelper.ts",
   "PreviewInSolutionExplorer": false
 }

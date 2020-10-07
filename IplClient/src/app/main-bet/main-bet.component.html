@@ -1,92 +1,73 @@
-
 <div class="container">
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="card">
-        <div class="card-body m-auto">
-          <!--<div class="dropdown">
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-              Select the Match
-            </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">RCB vs KKR 20-Sep 7:30PM</a>
-              <a class="dropdown-item" href="#">RCB vs KKR 20-Sep 7:30PM</a>
-              <a class="dropdown-item" href="#">RCB vs KKR 20-Sep 7:30PM</a>
-              <a class="dropdown-item" href="#">RCB vs KKR 20-Sep 7:30PM</a>
-              <a class="dropdown-item" href="#">RCB vs KKR 20-Sep 7:30PM</a>
-              <a class="dropdown-item" href="#">RCB vs KKR 20-Sep 7:30PM</a>
-
-              <a class="dropdown-item" href="#">RCB vs KKR 20-Sep 7:30PM</a>
-              <a class="dropdown-item" href="#">RCB vs KKR 20-Sep 7:30PM</a>
-              <a class="dropdown-item" href="#">RCB vs KKR 20-Sep 7:30PM</a>
-
-              <a class="dropdown-item" href="#">RCB vs KKR 20-Sep 7:30PM</a>
-              <a class="dropdown-item" href="#">Link 2</a>
-              <a class="dropdown-item" href="#">Link 3</a>
-
-              <a class="dropdown-item" href="#">Link 1</a>
-              <a class="dropdown-item" href="#">Link 2</a>
-              <a class="dropdown-item" href="#">Link 3</a>
-
-              <a class="dropdown-item" href="#">Link 1</a>
-              <a class="dropdown-item" href="#">Link 2</a>
-              <a class="dropdown-item" href="#">Link 3</a>
-              <a class="dropdown-item" href="#">Link 1</a>
-              <a class="dropdown-item" href="#">Link 2</a>
-              <a class="dropdown-item" href="#">Link 3</a>
-              <a class="dropdown-item" href="#">Link 1</a>
-              <a class="dropdown-item" href="#">Link 2</a>
-              <a class="dropdown-item" href="#">Link 3</a>
-            </div>
-          </div>-->
-          <form>
-            <div class="form-group">
-              <select name="matches" class="custom-select-lg form-control" placeholder="SEELE">
-                <option value="default">RCB vs KKR 20-Sep 7:30PM</option>
-                <option value="default">RCB vs KKR 20-Sep 7:30PM</option>
-                <option value="default">RCB vs KKR 20-Sep 7:30PM</option>
-                <option value="default">RCB vs KKR 20-Sep 7:30PM</option>
-                <option value="default">RCB vs KKR 20-Sep 7:30PM</option>
-                <option value="default">RCB vs KKR 20-Sep 7:30PM</option>
-                <option value="default">RCB vs KKR 20-Sep 7:30PM</option>
-                <option value="default">RCB vs KKR 20-Sep 7:30PM</option>
-                <option value="default">RCB vs KKR 20-Sep 7:30PM</option>
-                <option value="default">RCB vs KKR 20-Sep 7:30PM</option>
-                <option value="default">RCB vs KKR 20-Sep 7:30PM</option>
-                <option value="default">RCB vs KKR 20-Sep 7:30PM</option>
-              </select>
-            </div>
-            <br />
-            <h4 class="ml-4"> Select the team!</h4>
-            <div class="form-group">
-
-              <div class="btn-group-vertical w-100-pc" >
-                <button type="button" class="btn btn-primary btn-lg form-control" value="RCB">RCB</button>
-                <button type="button" class="btn btn-primary btn-lg form-control" value="MI">MI</button>
-              </div>
-
-            </div>
-            <h5 class="ml-4"> You selected </h5>
-            <br />
-            <h5 class="ml-4">
-              Select the <i class="fa fa-inr" aria-hidden="true"></i>&nbsp;to bet
-            </h5>
-            <div class="form-group">
-              <select id="betValue" name="betValue" class="custom-select-lg form-control">
-                <option value="10">10</option>
-                <option value="25">20</option>
-                <option value="50">50</option>
-                <option value="100">100</option>
-              </select>
-            </div>
-            <div class="form-group">
-             
-              <button type="submit" class="btn btn-success btn-lg w-100-pc"><i class="fa fa-usd" aria-hidden="true">&nbsp;BET</i></button>
-            </div>
-          </form>
-        </div>
-        </div>
+  <div class="row" *ngIf="userInfo">
+    <div class="col">
+      <h3>  Welcome <b>{{userInfo.DisplayName}}</b>! <span *ngIf="userInfo.UserGroup">,You are part of <b>{{userInfo.UserGroup}}</b> group</span></h3>
     </div>
   </div>
+  <div class="row">
+    <div class="col">
+      <form #formRef="ngForm" (ngSubmit)="bet(formRef)">
+        <div>
+          <mat-form-field appearance="fill" style="width: 100%">
+            <mat-label>Select the Match </mat-label>
+            <mat-select name="match" ngModel id="match" (selectionChange)="onMatchSelected(formRef.value.match)" required>
+              <mat-option *ngFor="let match of matchDetails" [value]="match.MatchId" [disabled]="match.DisableBettingForMatch">
+                <img class="img-fluid" width="20" height="20" src="../../assets/icons/{{match.TeamAShortName}}.png" /> {{match.TeamAShortName}} <img class="img-fluid" width="20" height="20" [src]="match.DisableBettingForMatch ?'../../assets/icons/betfire.png':'../../assets/icons/fire.gif'" />  <img class="img-fluid" width="20" height="20" src="../../assets/icons/{{match.TeamBShortName}}.png" /> {{match.TeamBShortName}} <img class="img-fluid" width="15" height="15" src="../../assets/icons/date.svg" /> {{match.DisplayDate}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div *ngIf="!!selectedMatch">
+          <p>Match will be played in &nbsp;<i class="fa fa-play" aria-hidden="true"></i>&nbsp; <span style="color:purple">{{selectedMatch.Place}}</span></p>
+        </div>
+        <br />
+        <div>
+          <mat-form-field appearance="fill" style="width: 100%">
+            <mat-label>Select your Team</mat-label>
+            <mat-select name="team" ngModel id="team" [disabled]="!selectedMatch" required>
+              <mat-option *ngIf="!!selectedMatch" value={{selectedMatch.TeamIdA}}><img class="img-fluid" width="20" height="20" src="../../assets/icons/{{selectedMatch.TeamAShortName}}.png" /> {{selectedMatch.TeamAShortName}}</mat-option>
+              <mat-option *ngIf="!!selectedMatch" value={{selectedMatch.TeamIdB}}><img class="img-fluid" width="20" height="20" src="../../assets/icons/{{selectedMatch.TeamBShortName}}.png" /> {{selectedMatch.TeamBShortName}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <br />
+        <div>
+
+          <mat-form-field appearance="fill" style="width: 100%">
+            <mat-label>Select amount</mat-label>
+            <mat-select name="betValue" ngModel id="betValue" [disabled]="!selectedMatch" required>
+              <mat-option *ngFor="let amount of betAmounts" [value]="amount"><img class="img-fluid" width="16" height="16" src="../../assets/icons/rupee.jpg" />&nbsp;{{amount}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+
+          <button type="submit" class="btn btn-success btn-lg w-100-pc" [disabled]="formRef.invalid"><i class="fa fa-inr" aria-hidden="true">&nbsp;BET</i></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="userInsufficientFundAlert">
+  <div class="backdrop" (click)="onClose()"></div>
+     <div class="modal-content alert-box">
+      <div class="modal-header">
+        <h4 class="modal-title" style="color: red;">Insufficient funds</h4>
+        <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="onClose()">
+          <span aria-hidden="true">&times;</span>
+        </button>-->
+      </div>
+      <div class="modal-body">
+        You don't have enough money to Bet!<br />
+        Please recharge your <i class="fa fa-inr" aria-hidden="true"></i> <b> wallet</b> by contacting the <b>Administrator</b>!!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onClose()">Close</button>
+      </div>
+    </div>
+  <!--</div>-->
+
 </div>
 

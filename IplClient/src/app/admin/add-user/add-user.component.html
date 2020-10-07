@@ -1,0 +1,40 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <form #formRef="ngForm" (ngSubmit)="addUser(formRef)">
+        <div class="form-group">
+          <label for="username">User Name:</label>
+          <input type="text" ngModel required name="username" id="username" class="form-control" maxlength="23" />
+        </div>
+
+        <br />
+
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="text" ngModel required name="password" id="password" class="form-control" maxlength="23" />
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="usergroup">User Group:</label>
+          <input type="text" ngModel name="usergroup" id="usergroup" class="form-control" maxlength="32" />
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="role">Select the User Role:</label>
+          <select ngModel required id="role" name="role" class="form-control">
+            <option value="1">User</option>
+            <option value="2">Admin</option>
+            <option value="3">Tester</option>
+          </select>
+        </div>
+        <br />
+        <div class="form-group">
+          <button type="submit" class="btn btn-warning btn-lg w-100-pc" [disabled]="formRef.invalid"><i class="fa fa-user" aria-hidden="true">&nbsp; Add User</i></button>
+        </div>
+        <br />
+
+      </form>
+    </div>
+  </div>
+</div>

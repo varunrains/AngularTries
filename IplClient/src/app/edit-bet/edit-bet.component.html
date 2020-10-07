@@ -1,0 +1,70 @@
+<div class="table-responsive">
+  <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th>Your Betting Details <span class="badge badge-pill badge-success">Selected Team</span></th>
+      <th>Edit /Delete ?</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let currentBet of currentBetDetails">
+      <td>
+        <span [ngClass]="currentBet.TeamAId === currentBet.BettingTeamIdOrTeamAId ? 'btn btn-sm btn-success':'btn btn-sm btn-light'">{{currentBet.BettingTeamNameOrTeamA}}</span>
+        &nbsp;<b>vs</b>&nbsp;
+        <span [ngClass]="currentBet.TeamBId === currentBet.BettingTeamIdOrTeamAId ? 'btn btn-sm btn-success':'btn btn-sm btn-light'">{{currentBet.WinningTeamNameOrTeamB}}</span>
+        <br /><i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+        &nbsp;{{currentBet.DisplayDate}}
+        &nbsp;<i class="fa fa-inr" aria-hidden="true"></i>&nbsp;{{currentBet.BetAmount}}
+      </td>
+      <td><button style="font-size: 25px" [ngClass]="canEdit(currentBet) ? 'btn btn-light fa fa-pencil-square-o':'btn btn-light fa fa-lock'" [disabled]="!canEdit(currentBet)" aria-hidden="true" (click)="onEditClick(currentBet)"></button></td>
+    </tr>
+    </tbody>
+  </table>
+  <div *ngIf="currentBetDetails.length === 0">Please start BETTING!!!</div>
+</div>
+<div *ngIf="isModalOpen">
+  <div class="backdrop" (click)="onClose()"></div>
+  <div class="modal-content alert-box">
+    <div class="modal-header">
+      <h4 class="modal-title" style="color: blue;">
+        <i class="fa fa-edit" aria-hidden="true"></i>
+        <b>{{editingBet.BettingTeamNameOrTeamA}}</b> vs <b>{{editingBet.WinningTeamNameOrTeamB}}</b>
+        <!--<img class="img-fluid" width="20" height="20" src="../../assets/icons/{{editingBet.BettingTeamNameOrTeamA}}.png" />
+  <img class="img-fluid" width="20" height="20" src="../../assets/icons/fire.gif" />
+  <img class="img-fluid" width="20" height="20" src="../../assets/icons/{{editingBet.WinningTeamNameOrTeamB}}.png" />-->
+        <!--<img class="img-fluid" width="15" height="15" src="../../assets/icons/date.svg" />-->
+        <br /><i class="fa fa-calendar-check-o" aria-hidden="true"></i>{{editingBet.DisplayDate}}
+</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="onClose()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form #formRef="ngForm">
+        <div>
+          <mat-form-field appearance="fill" style="width: 100%">
+            <mat-label>Select your Team</mat-label>
+            <mat-select name="team" id="team" [disabled]="!editingBet" [(ngModel)]="editingBet.BettingTeamIdOrTeamAId" required>
+              <mat-option [value]="editingBet.TeamAId"><img class="img-fluid" width="20" height="20" src="../../assets/icons/{{editingBet.BettingTeamNameOrTeamA}}.png" /> {{editingBet.BettingTeamNameOrTeamA}}</mat-option>
+              <mat-option [value]="editingBet.TeamBId"><img class="img-fluid" width="20" height="20" src="../../assets/icons/{{editingBet.WinningTeamNameOrTeamB}}.png" /> {{editingBet.WinningTeamNameOrTeamB}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <br />
+        <div>
+          <mat-form-field appearance="fill" style="width: 100%">
+            <mat-label>Select amount</mat-label>
+            <mat-select name="betValue" id="betValue" [disabled]="!editingBet" [(ngModel)]="editingBet.BetAmount" required>
+              <mat-option *ngFor="let amount of betAmounts" [value]="amount"><img class="img-fluid" width="16" height="16" src="../../assets/icons/rupee.jpg" />&nbsp;{{amount}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="updateBet(formRef,false)" [disabled]="formRef.invalid"><i class="fa fa-edit" aria-hidden="true"> Update</i></button>
+      <button type="button" class="btn btn-danger" (click)="updateBet(formRef,true)" [disabled]="formRef.invalid"><i class="fa fa-trash" aria-hidden="true"> Delete</i></button>
+    </div>
+  </div>
+</div>
+

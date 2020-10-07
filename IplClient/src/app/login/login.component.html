@@ -1,0 +1,64 @@
+<div class="container-sm shadow mt-5">
+
+  <form #formRef="ngForm" (ngSubmit)="login(formRef)">
+    <div class="row">
+      <div class="col">
+        <h2 class="text-center"><!--<img src="../../assets/icons/login.gif"/>-->Login!!</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="input-group mb-3 mt-1">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-user"></i></span>
+          </div>
+          <input type="text" class="form-control" placeholder="Username" ngModel name="username" id="username" required>
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-lock"></i></span>
+          </div>
+          <input type="password" class="form-control" placeholder="Your Password" name="password" id="password" ngModel required autocomplete="off">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <button type="submit" class="btn btn-success btn-lg" [disabled]="formRef.invalid"><i class="fa fa-key"></i> Login</button>
+          <button type="button" class="btn btn-link" (click)="onForgotPasswordClick()">Forgot Password ?</button>
+        </div>
+      </div>
+      </div>
+      <div class="row" *ngIf="error">
+        <div class="col">
+          <div class="alert alert-danger alert-dismissible">
+            <button type="button" class="close" (click)="clearError()">&times;</button>
+            <strong> Username or Password is Incorrect!!</strong>
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="alert alert-danger alert-dismissible" *ngIf="displayForgotPasswordLabel">
+            <button type="button" class="close" (click)="onForgotPasswordClick()">&times;</button>
+            <strong> Please contact the Administrator!</strong>
+          </div>
+        </div>
+
+      </div>
+      <!--<h6>OR</h6>
+      <div class="row">
+        <div class="col">
+          <div class="input-group mt-4 mb-4">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><img src="../../assets/icons/google.svg" height="30px" width="30px" /></span>
+            </div>
+            <button type="button" class="form-control btn btn-primary btn-lg" name="googleSignin">Sign in with google</button>
+          </div>
+        </div>
+      </div>-->
+    <!--</div>-->
+  </form>
+</div>

@@ -1,0 +1,53 @@
+{
+  "$schema": "./node_modules/@angular/service-worker/config/schema.json",
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "resources": {
+        "files": [
+          "/favicon.ico",
+          "/index.html",
+          "/manifest.webmanifest",
+          "/*.css",
+          "/*.js"
+        ]
+      }
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/assets/**",
+          "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
+        ]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "matchDetails",
+      "urls": [ "/api/matches/GetMatchDetails" ],
+      "cacheConfig": {
+        "maxSize": 3,
+        "maxAge": "10d",
+        "strategy": "performance",
+        "timeout": "10s"
+      }
+
+    },
+    {
+      "name": "historyDetails",
+      "urls": [ "/api/bets/GetBettingHistory" ],
+      "cacheConfig": {
+        "maxSize": 3,
+        "maxAge": "12h",
+        "strategy": "performance",
+        "timeout": "10s"
+      }
+    }
+  ]
+}

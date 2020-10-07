@@ -1,0 +1,22 @@
+<div class="table-responsive">
+  <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th>Match Details <span class="badge badge-pill badge-warning">Your Team</span></th>
+      <th>Result</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let bettingHistory of bettingHistoryDetails">
+      <td>
+        <span [ngClass]="bettingHistory.TeamAId === bettingHistory.BettingTeamIdOrTeamAId ? 'btn btn-sm btn-warning':'btn btn-sm btn-light'">{{bettingHistory.BettingTeamNameOrTeamA}}</span>
+        &nbsp;<b>vs</b>&nbsp;
+        <span [ngClass]="bettingHistory.TeamBId === bettingHistory.BettingTeamIdOrTeamAId ? 'btn btn-sm btn-warning':'btn btn-sm btn-light'">{{bettingHistory.WinningTeamNameOrTeamB}}</span>
+        <br /><i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{bettingHistory.DisplayDate}}
+      </td>
+      <td><i style="font-size: 25px" [ngClass]="bettingHistory.NetAmountWon >= 0 ? 'fa fa-thumbs-up':'fa fa-thumbs-down'" aria-hidden="true"></i><span [ngStyle]="{'color': bettingHistory.NetAmountWon >= 0 ? 'green':'red'}">&nbsp;<b>{{bettingHistory.NetAmountWon}}</b></span></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="bettingHistoryDetails.length === 0">No History Details Available!!</div>

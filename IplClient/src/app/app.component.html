@@ -1,2 +1,14 @@
 <app-header></app-header>
-<app-main-bet></app-main-bet>
+<ngx-spinner bdColor="rgba(51,51,51,0.8)"
+                 size="medium"
+                 color="#fff"
+                 type="timer">
+  <p style="color: white"></p>
+</ngx-spinner>
+<div class="container mt-1" (click)="onCloseSideNav()">
+  <div class="row">
+    <div class="col" (click)="onCloseSideNav()">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <form #formRef="ngForm" (ngSubmit)="updateResult(formRef)">
+        <div>
+          <mat-form-field appearance="fill" style="width: 100%">
+            <mat-label>Select the MATCH to Update Result</mat-label>
+            <mat-select name="match" ngModel id="match" (selectionChange)="onMatchSelected(formRef.value.match)" required>
+              <mat-option *ngFor="let match of matchDetails" [value]="match.MatchId">
+                <img class="img-fluid" width="20" height="20" src="../../assets/icons/{{match.TeamAShortName}}.png" /> {{match.TeamAShortName}} <img class="img-fluid" width="20" height="20" [src]="match.DisableBettingForMatch ?'../../assets/icons/betfire.png':'../../assets/icons/fire.gif'" />  <img class="img-fluid" width="20" height="20" src="../../assets/icons/{{match.TeamBShortName}}.png" /> {{match.TeamBShortName}} <img class="img-fluid" width="15" height="15" src="../../assets/icons/date.svg" /> {{match.DisplayDate}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div *ngIf="!!selectedMatch">
+          <p>Match played in &nbsp;<i class="fa fa-play" aria-hidden="true"></i>&nbsp; <span style="color:purple">{{selectedMatch.Place}}</span></p>
+        </div>
+        <br />
+        <div>
+          <mat-form-field appearance="fill" style="width: 100%">
+            <mat-label>Result!! BE CAREFUL</mat-label>
+            <mat-select name="team" ngModel id="team" [disabled]="!selectedMatch" required>
+              <mat-option *ngIf="!!selectedMatch" value={{selectedMatch.TeamIdA}}><img class="img-fluid" width="20" height="20" src="../../assets/icons/{{selectedMatch.TeamAShortName}}.png" /> {{selectedMatch.TeamAShortName}}</mat-option>
+              <mat-option *ngIf="!!selectedMatch" value={{selectedMatch.TeamIdB}}><img class="img-fluid" width="20" height="20" src="../../assets/icons/{{selectedMatch.TeamBShortName}}.png" /> {{selectedMatch.TeamBShortName}}</mat-option>
+              <mat-option value="0">No Result</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <br />
+        <div class="form-group">
+          <button type="submit" class="btn btn-danger btn-lg w-100-pc" [disabled]="formRef.invalid"><i class="fa fa-usd" aria-hidden="true">&nbsp;Update Result</i></button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 50px">
+    <div class="col">
+      <div class="form-group">
+        <button type="button" class="btn btn-danger btn-lg w-100-pc" (click)="removeAllBets()"><i class="fa fa-delete" aria-hidden="true">&nbsp;Delete All bets of Users</i></button>
+      </div>
+    </div>
+  </div>
+</div>

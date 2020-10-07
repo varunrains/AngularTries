@@ -3,10 +3,8 @@
     "",
     "\\public",
     "\\public\\src",
-    "\\public\\src\\css",
-    "\\public\\src\\images\\icons",
     "\\public\\src\\js"
   ],
-  "SelectedNode": "\\public\\index.html",
+  "SelectedNode": "\\public\\sw.js",
   "PreviewInSolutionExplorer": false
 }
