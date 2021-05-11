@@ -4,13 +4,11 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\admin",
-    "\\src\\app\\admin\\update-result",
-    "\\src\\app\\change-password",
-    "\\src\\app\\helpers",
+    "\\src\\app\\admin\\send-notification",
     "\\src\\app\\login",
-    "\\src\\app\\main-bet",
-    "\\src\\app\\models"
+    "\\src\\app\\models",
+    "\\src\\assets"
   ],
-  "SelectedNode": "\\src\\app\\helpers\\EntityHelper.ts",
+  "SelectedNode": "\\src\\app\\login\\http.interceptor.ts",
   "PreviewInSolutionExplorer": false
 }

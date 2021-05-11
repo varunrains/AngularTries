@@ -6,6 +6,7 @@ export class User {
     public SecretKey:string,
     public UserAmount: number,
     public UserRole: number,
+    public WinningPercentage?:number,
     public UserGroup?: string,
     public IsAdmin?: boolean,
     public UsersFutureBets?:number[]) {

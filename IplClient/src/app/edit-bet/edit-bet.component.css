@@ -19,6 +19,31 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 }
 
+.alert-box-bets {
+  position: fixed;
+  top: 5vh;
+  left: 8vw;
+  width: 85vw;
+  padding: 12px;
+  z-index: 100;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
 .alert-box-actions {
   text-align: right;
+}
+
+.modal {
+  display: block !important; /* I added this to see the modal, you don't need this */
+}
+
+/* Important part */
+.modal-dialog {
+  overflow-y: initial !important
+}
+
+.modal-body {
+  /*height: 72vh;*/
+  overflow-y: auto;
 }

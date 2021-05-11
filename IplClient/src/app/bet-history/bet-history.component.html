@@ -1,22 +1,50 @@
 <div class="table-responsive">
   <table class="table table-bordered table-striped">
     <thead class="thead-dark">
-    <tr>
-      <th>Match Details <span class="badge badge-pill badge-warning">Your Team</span></th>
-      <th>Result</th>
-    </tr>
+      <tr>
+        <th>Match Details <span class="badge badge-pill badge-warning">Your Team</span></th>
+        <th>Result</th>
+        <th><i class="fa fa-users" aria-hidden="true"></i></th>
+      </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let bettingHistory of bettingHistoryDetails">
-      <td>
-        <span [ngClass]="bettingHistory.TeamAId === bettingHistory.BettingTeamIdOrTeamAId ? 'btn btn-sm btn-warning':'btn btn-sm btn-light'">{{bettingHistory.BettingTeamNameOrTeamA}}</span>
-        &nbsp;<b>vs</b>&nbsp;
-        <span [ngClass]="bettingHistory.TeamBId === bettingHistory.BettingTeamIdOrTeamAId ? 'btn btn-sm btn-warning':'btn btn-sm btn-light'">{{bettingHistory.WinningTeamNameOrTeamB}}</span>
-        <br /><i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{bettingHistory.DisplayDate}}
-      </td>
-      <td><i style="font-size: 25px" [ngClass]="bettingHistory.NetAmountWon >= 0 ? 'fa fa-thumbs-up':'fa fa-thumbs-down'" aria-hidden="true"></i><span [ngStyle]="{'color': bettingHistory.NetAmountWon >= 0 ? 'green':'red'}">&nbsp;<b>{{bettingHistory.NetAmountWon}}</b></span></td>
-    </tr>
+      <tr *ngFor="let bettingHistory of bettingHistoryDetails">
+        <td>
+          <span [ngClass]="bettingHistory.TeamAId === bettingHistory.BettingTeamIdOrTeamAId ? 'btn btn-sm btn-warning':'btn btn-sm btn-light'">{{bettingHistory.BettingTeamNameOrTeamA}}</span>
+          &nbsp;<b>vs</b>&nbsp;
+          <span [ngClass]="bettingHistory.TeamBId === bettingHistory.BettingTeamIdOrTeamAId ? 'btn btn-sm btn-warning':'btn btn-sm btn-light'">{{bettingHistory.WinningTeamNameOrTeamB}}</span>
+          <br /><i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{bettingHistory.DisplayDate}}
+        </td>
+        <td>
+          <i style="font-size: 25px" [ngClass]="bettingHistory.NetAmountWon >= 0 ? 'fa fa-thumbs-up':'fa fa-thumbs-down'" aria-hidden="true"></i><span [ngStyle]="{'color': bettingHistory.NetAmountWon >= 0 ? 'green':'red'}">&nbsp;<b>{{bettingHistory.NetAmountWon.toFixed(2)}}</b></span>
+          <!--<span style="font-size: 22px;" class="fa fa-book" aria-hidden="true" (click)="checkOtherUsersBets(bettingHistory.MatchId)"></span>-->
+        </td>
+        <td><span style="font-size: 22px;" class="fa fa-book" aria-hidden="true" (click)="checkOtherUsersBets(bettingHistory.MatchId)"></span></td>
+      </tr>
     </tbody>
   </table>
 </div>
 <div *ngIf="bettingHistoryDetails.length === 0">No History Details Available!!</div>
+<div *ngIf="otherUsersBetsModal">
+  <div class="backdrop" (click)="onClose()"></div>
+  <div class="modal-content alert-box">
+    <!--<div class="modal-header">
+      <h4 class="modal-title" style="color: red;"><b>Total Bets: {{otherUsersBets.length}}</b></h4>
+    </div>-->
+    <div class="modal-body">
+      <h4 class="modal-title" style="color: red;"><b>Total Bets: {{otherUsersBets.length}}</b></h4>
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-action list-group-item-light" *ngFor="let bet of otherUsersBets">
+          <img class="img-fluid" width="20" height="20" src="../../assets/icons/{{bet.BettingTeamNameOrTeamA}}.png" /><b>{{bet.BettingTeamNameOrTeamA}}</b>&nbsp;&nbsp;<i class="fa fa-inr" aria-hidden="true"></i><span [ngStyle]="{'color': bet.NetAmountWon >= 0 ? 'green':'red'}"><b>{{bet.NetAmountWon}}</b></span> &nbsp;
+          <i class="fa fa-user-circle-o" aria-hidden="true"></i>&nbsp;<b>{{bet.UserName}}</b>
+        </li>
+      </ul>
+      <br/>
+      <!--<button type="button" class="btn btn-secondary pull-right" data-dismiss="modal" (click)="onClose()">Close</button>-->
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onClose()">Close</button>
+    </div>
+  </div>
+</div>
+

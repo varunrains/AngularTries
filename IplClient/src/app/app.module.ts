@@ -5,6 +5,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,9 +20,8 @@ import { LoginComponent } from './login/login.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { HttpInterceptorService } from "./login/http.interceptor";
 import { ChangePasswordComponent } from './change-password/change-password.component';
-import { NotificationComponent } from './notification/notification.component';
-//import { UpdateResultComponent } from './admin/update-result/update-result.component';
-//import { AddUserComponent } from './admin/add-user/add-user.component';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+import { SimpleDialogComponent } from './simple-dialog/simple-dialog.component';
 
 @NgModule({
   declarations: [
@@ -31,9 +32,8 @@ import { NotificationComponent } from './notification/notification.component';
     EditBetComponent,
     LoginComponent,
     ChangePasswordComponent,
-    NotificationComponent
-    //UpdateResultComponent,
-    //AddUserComponent
+    LeaderboardComponent,
+    SimpleDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +44,8 @@ import { NotificationComponent } from './notification/notification.component';
     BrowserAnimationsModule,
     MatSelectModule,
     MatSnackBarModule,
+    MatDialogModule,
+    MatProgressSpinnerModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [

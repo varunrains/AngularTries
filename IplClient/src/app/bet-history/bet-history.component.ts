@@ -11,7 +11,9 @@ import { BettingService } from "../betting.service";
   styleUrls: ['./bet-history.component.css']
 })
 export class BetHistoryComponent implements OnInit {
-  public bettingHistoryDetails:Bet[] = [];
+  public bettingHistoryDetails: Bet[] = [];
+  public otherUsersBetsModal: boolean = false;
+  public otherUsersBets: Bet[];
   constructor(private bettingService: BettingService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
@@ -34,6 +36,21 @@ export class BetHistoryComponent implements OnInit {
     this.snackBar.open(message, action, {
       duration: 10000,
     });
+  }
+
+  checkOtherUsersBets = (matchId: number) => {
+    this.bettingService.getAmountOwnByUsers(matchId).subscribe(resp => {
+      this.otherUsersBets = resp;
+      this.otherUsersBetsModal = true;
+    }, error => {
+      this.openSnackBar("Error occured. Please retry!", "Ok");
+      this.otherUsersBetsModal = false;
+    });
+  }
+
+  onClose = () => {
+    this.otherUsersBetsModal = false;
+    this.otherUsersBets = [];
   }
 
 }

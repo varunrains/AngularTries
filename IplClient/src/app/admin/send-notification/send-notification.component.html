@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col col-lg-6 col-xl-5 col-md-7">
+      <form #formRef="ngForm" (ngSubmit)="send(formRef)">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" ngModel  name="title" id="title" class="form-control" maxlength="100" />
+        </div>
+
+        <br />
+
+        <div class="form-group">
+          <label for="body">Body:</label>
+          <input type="text" height="40" ngModel  name="body" id="body" class="form-control" maxlength="512" />
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="icon">Icon:</label>
+          <select ngModel id="icon" name="icon" class="form-control">
+            <option value="SRH">SRH</option>
+            <option value="CSK">CSK</option>
+            <option value="DC">DC</option>
+            <option value="PBKS">PBKS</option>
+            <option value="KKR">KKR</option>
+            <option value="RR">RR</option>
+            <option value="RCB">RCB</option>
+            <option value="MI">MI</option>
+          </select>
+        </div>
+        <br />
+      
+        <br />
+        <div class="form-group">
+          <button type="submit" class="btn btn-warning btn-lg w-100-pc" ><i class="fa fa-user" aria-hidden="true">&nbsp; Send Notification</i></button>
+        </div>
+        <br />
+
+      </form>
+    </div>
+  </div>
+</div>

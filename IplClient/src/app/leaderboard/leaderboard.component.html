@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col col-lg-6 col-xl-5 col-md-7">
+    <h4 style="text-align:center"><b>Leaderboard IPL 2020</b><button class="btn btn-link" (click)="leaderScreenInfo()">Click here</button></h4>
+      <ul class="list-group">
+        <li [ngClass]="even ? 'list-group-item list-group-item-action list-group-item-secondary':'list-group-item list-group-item-action list-group-item-light'" *ngFor="let leaderBoardUser of leaderBoardUsers;let i = index;let even=even">
+          {{i+1}}.&nbsp;<b>{{leaderBoardUser.UserName}}</b>
+          <br />
+          <img src="../../assets/profile/{{leaderBoardUser.UserName | lowercase}}.jpg" class="img-fluid pull-left" height="80" width="80" />
+
+          <div style="position: relative; width: 46px; display: flex; align-items: center; justify-content: center;margin-top:5%;margin-left:60%">
+            <mat-progress-spinner color="primary"
+                                  mode="determinate"
+                                  diameter="60"
+                                  [value]="leaderBoardUser.WinningPercentage">
+            </mat-progress-spinner>
+            <b>{{leaderBoardUser.WinningPercentage}}%</b>
+          </div>
+        </li>
+      </ul>
+    </div></div></div>

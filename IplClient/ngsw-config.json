@@ -33,7 +33,7 @@
       "urls": [ "/api/matches/GetMatchDetails" ],
       "cacheConfig": {
         "maxSize": 3,
-        "maxAge": "10d",
+        "maxAge": "30d",
         "strategy": "performance",
         "timeout": "10s"
       }
@@ -44,7 +44,17 @@
       "urls": [ "/api/bets/GetBettingHistory" ],
       "cacheConfig": {
         "maxSize": 3,
-        "maxAge": "12h",
+        "maxAge": "1d",
+        "strategy": "performance",
+        "timeout": "10s"
+      }
+    },
+    {
+      "name": "winningPercentage",
+      "urls": [ "/api/users/GetUserWinningPercentage" ],
+      "cacheConfig": {
+        "maxSize": 3,
+        "maxAge": "1d",
         "strategy": "performance",
         "timeout": "10s"
       }

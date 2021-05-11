@@ -9,11 +9,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { SendNotificationComponent } from './send-notification/send-notification.component';
 
 @NgModule({
   declarations: [
     UpdateResultComponent,
-    AddUserComponent
+    AddUserComponent,
+    SendNotificationComponent
   ],
   imports: [AdminRoutingModule,
     FormsModule,

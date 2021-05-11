@@ -9,6 +9,7 @@ import { EntityHelper } from "../helpers/EntityHelper";
 import { User } from "../models/user.model";
 import { AuthService } from "../login/auth.service";
 
+
 @Component({
   selector: 'app-main-bet',
   templateUrl: './main-bet.component.html',
@@ -18,11 +19,16 @@ export class MainBetComponent implements OnInit {
   public matchDetails: Match[] = [];
   public betAmounts: number[] = [10, 20, 50, 100];
   public selectedMatch: Match;
+
   public userInfo: User;
   public userInsufficientFundAlert:boolean = false;
-  constructor(private bettingService: BettingService, private snackBar: MatSnackBar, private authService: AuthService) { }
+  constructor(private bettingService: BettingService, private snackBar: MatSnackBar, private authService: AuthService) {
+    
+  }
 
   ngOnInit(): void {
+
+    
     this.userInsufficientFundAlert = false;
     this.loadMatchDetails();
   }
@@ -100,6 +106,7 @@ export class MainBetComponent implements OnInit {
   onClose = () => {
     this.userInsufficientFundAlert = false;
   }
+
 
   
 }

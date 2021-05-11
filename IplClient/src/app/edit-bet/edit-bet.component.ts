@@ -7,6 +7,7 @@ import { BettingService } from "../betting.service";
 import { NgForm } from '@angular/forms';
 import { AuthService } from "../login/auth.service";
 import { User } from "../models/user.model";
+import { WebNotificationService } from '../header/webnotification.service';
 
 @Component({
   selector: 'app-edit-bet',
@@ -19,8 +20,10 @@ export class EditBetComponent implements OnInit {
   public editingBet: Bet;
   public originalCopyOfBet: Bet[] = [];
   public betAmounts: number[] = [10, 20, 50, 100];
-  private betAmountBeforeEdit:number;
-  constructor(private bettingService: BettingService, private snackBar: MatSnackBar, private authService: AuthService) { }
+  private betAmountBeforeEdit: number;
+  public otherUsersBetsModal: boolean = false;
+  public otherUsersBets: Bet[];
+  constructor(private bettingService: BettingService, private snackBar: MatSnackBar, private authService: AuthService, private webNotificationService: WebNotificationService) { }
 
   ngOnInit(): void {
     this.bettingService.getCurrentBets().subscribe(resp => {
@@ -29,6 +32,17 @@ export class EditBetComponent implements OnInit {
       error => {
         this.openSnackBar("Error occured. Please retry!", "Ok");
       });
+
+    if (!this.webNotificationService.isUserSubscribedForNotification()) {
+      const snack = this.snackBar.open('Haven\'t subscribed yet ?', 'Get Notified!');
+      snack
+        .onAction()
+        .subscribe(() => {
+          this.webNotificationService.subscribeToNotification();
+        });
+
+      snack._dismissAfter(15000);
+    }
   }
 
   onClose = () => {
@@ -107,5 +121,20 @@ export class EditBetComponent implements OnInit {
     });
 
     this.currentBetDetails.splice(betIndex, 1);
+  }
+
+  onBetsModalClose = () => {
+    this.otherUsersBetsModal = false;
+    this.otherUsersBets = [];
+  }
+
+  checkOtherUsersBets = (matchId: number) => {
+    this.bettingService.otherUsersBets(matchId).subscribe(resp => {
+      this.otherUsersBets = resp;
+      this.otherUsersBetsModal = true;
+    }, error => {
+      this.openSnackBar("Error occured. Please retry!", "Ok");
+      this.otherUsersBetsModal = false;
+    });
   }
 }

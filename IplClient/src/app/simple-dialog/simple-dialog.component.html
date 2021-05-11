@@ -1,0 +1,7 @@
+<div *ngIf="!!data.title">
+  <h3 style="color:royalblue"><b>{{data.title}}</b></h3>
+  {{data.body}}
+</div><br/>
+<div>
+  <button class="btn btn-dark pull-right" (click)="onClose()">Close</button>
+</div>

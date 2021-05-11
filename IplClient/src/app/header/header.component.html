@@ -1,13 +1,15 @@
   <div id="mySidenav" class="sidenav bg-dark" *ngIf="isSideNavVisible">
   <button type="button" class="btn btn-primary closebtn" (click)="toggleSideBar()"><i class="fa fa-bars"></i></button>
-    <a routerLink=""  (click)="toggleSideBar()"><i class="enable-notifications" aria-hidden="true"></i>&nbsp;Enable Notification</a>
-  <a routerLink="home" (click)="toggleSideBar()"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>&nbsp;Bet</a>
-  <a routerLink="editBet" (click)="toggleSideBar()"><i class="fa fa-book" aria-hidden="true"></i>&nbsp;My Bets</a>
-  <a routerLink="history" (click)="toggleSideBar()"><i class="fa fa-history" aria-hidden="true"></i>&nbsp;History</a>
+  <a (click)="subscribeForNotification()" *ngIf="!isUserSubscribedForNotification()"><i class="material-icons" style="font-size:18px">notification_important</i>&nbsp;Enable Notification</a>
+  <a routerLink="home" (click)="toggleSideBar()"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>&nbsp;&nbsp;Bet</a>
+  <a routerLink="editBet" (click)="toggleSideBar()"><i class="fa fa-book" aria-hidden="true"></i>&nbsp;&nbsp;My Bets</a>
+  <a routerLink="history" (click)="toggleSideBar()"><i class="fa fa-history" aria-hidden="true"></i>&nbsp;&nbsp;History</a>
   <a routerLink="editBet" (click)="toggleSideBar()"><i class="fa fa-money" aria-hidden="true"></i>&nbsp;Wallet -{{getWalletAmount()}}</a>
-  <a routerLink="changePassword" (click)="toggleSideBar()"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Change Password</a>
+  <a routerLink="leaderboard" (click)="toggleSideBar()"><i class="fa fa-trophy" aria-hidden="true"></i>&nbsp;&nbsp;Leaderboard</a>
+  <a routerLink="changePassword" (click)="toggleSideBar()"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Change Password</a>
   <a routerLink="admin/updateResult" *ngIf="userInformation.IsAdmin" (click)="toggleSideBar()"><i class="fa fa-lock" aria-hidden="true"></i>&nbsp;Update Result</a>
   <a routerLink="admin/addUser" *ngIf="userInformation.IsAdmin" (click)="toggleSideBar()"><i class="fa fa-lock" aria-hidden="true"></i>&nbsp;Add User</a>
+  <a routerLink="admin/sendnotification" *ngIf="userInformation.IsAdmin" (click)="toggleSideBar()"><i class="fa fa-lock" aria-hidden="true"></i>&nbsp;Send Notification</a>
 </div>
 <nav class="navbar bg-dark navbar-dark">
     <ul class="navbar-nav mr-1 ml-0">
@@ -17,7 +19,7 @@
     </ul>
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" *ngIf="!!userInformation">
-        <button type="button" class="btn btn-primary" (click)="onHomeClick()"><i class="fa fa-home"></i></button>
+        <button type="button" class="btn btn-sm btn-primary" style="height:2.4rem" (click)="onHomeClick()"><i class="material-icons">sports_cricket</i></button>
       </li>
     </ul>
     <ul class="navbar-nav navbar-right">

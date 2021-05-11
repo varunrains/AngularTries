@@ -11,5 +11,6 @@ export class Bet {
     public TeamBId?: number,
     public NetAmountWon?: number,
     public MatchDate?: Date,
-    public DisplayDate?:string) { }
+    public DisplayDate?: string,
+    public UserName?:string) { }
 }

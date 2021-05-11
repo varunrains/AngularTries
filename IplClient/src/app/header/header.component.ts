@@ -6,6 +6,8 @@ import { HeaderService } from './header.service';
 import { AuthService } from "../login/auth.service";
 import { User } from "../models/user.model";
 import { EntityHelper } from "../helpers/EntityHelper";
+import { WebNotificationService } from "./webnotification.service";
+
 
 @Component({
   selector: 'app-header',
@@ -16,8 +18,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isSideNavVisible: boolean = false;
   onCloseSubscription: Subscription;
   userInformation: User;
-  userWalletAmount:number = 0;
-  constructor(private headerService: HeaderService, private authService: AuthService, private router: Router) { }
+  userWalletAmount: number = 0;
+
+  constructor(private headerService: HeaderService, private authService: AuthService, private router: Router, private webNotificationService: WebNotificationService) {
+  }
 
   ngOnInit(): void {
     this.onCloseSubscription = this.headerService.closeSideNavigation.subscribe(() => {
@@ -31,12 +35,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
       }
       this.userInformation = data;
     });
+    this.webNotificationService.checkAndReloadAppUpdate();
+  }
+
+  isUserSubscribedForNotification = () => {
+    return this.webNotificationService.isUserSubscribedForNotification();
   }
 
   getWalletAmount() {
     var userDetail = EntityHelper.getUserDetails();
     if (userDetail) {
-      return userDetail.UserAmount;
+      return userDetail.UserAmount.toFixed(2);
     } else {
       return 0;
     }
@@ -54,6 +63,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   onHomeClick() {
     this.router.navigate(['/home']);
+  }
+
+  subscribeForNotification(): void {
+    this.webNotificationService.subscribeToNotification();
   }
 
   ngOnDestroy(): void {

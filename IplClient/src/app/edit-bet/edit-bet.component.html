@@ -1,23 +1,23 @@
 <div class="table-responsive">
   <table class="table table-bordered table-striped">
     <thead class="thead-dark">
-    <tr>
-      <th>Your Betting Details <span class="badge badge-pill badge-success">Selected Team</span></th>
-      <th>Edit /Delete ?</th>
-    </tr>
+      <tr>
+        <th>Your Bettings <span class="badge badge-pill badge-success">Selected Team</span></th>
+        <th><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;[Edit ?] <br /><i class="fa fa-book" aria-hidden="true"></i>&nbsp;[Bets]</th>
+      </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let currentBet of currentBetDetails">
-      <td>
-        <span [ngClass]="currentBet.TeamAId === currentBet.BettingTeamIdOrTeamAId ? 'btn btn-sm btn-success':'btn btn-sm btn-light'">{{currentBet.BettingTeamNameOrTeamA}}</span>
-        &nbsp;<b>vs</b>&nbsp;
-        <span [ngClass]="currentBet.TeamBId === currentBet.BettingTeamIdOrTeamAId ? 'btn btn-sm btn-success':'btn btn-sm btn-light'">{{currentBet.WinningTeamNameOrTeamB}}</span>
-        <br /><i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-        &nbsp;{{currentBet.DisplayDate}}
-        &nbsp;<i class="fa fa-inr" aria-hidden="true"></i>&nbsp;{{currentBet.BetAmount}}
-      </td>
-      <td><button style="font-size: 25px" [ngClass]="canEdit(currentBet) ? 'btn btn-light fa fa-pencil-square-o':'btn btn-light fa fa-lock'" [disabled]="!canEdit(currentBet)" aria-hidden="true" (click)="onEditClick(currentBet)"></button></td>
-    </tr>
+      <tr *ngFor="let currentBet of currentBetDetails">
+        <td>
+          <span [ngClass]="currentBet.TeamAId === currentBet.BettingTeamIdOrTeamAId ? 'btn btn-sm btn-success':'btn btn-sm btn-light'">{{currentBet.BettingTeamNameOrTeamA}}</span>
+          &nbsp;<b>vs</b>&nbsp;
+          <span [ngClass]="currentBet.TeamBId === currentBet.BettingTeamIdOrTeamAId ? 'btn btn-sm btn-success':'btn btn-sm btn-light'">{{currentBet.WinningTeamNameOrTeamB}}</span>
+          <br /><i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+          &nbsp;{{currentBet.DisplayDate}}
+          &nbsp;<i class="fa fa-inr" aria-hidden="true"></i>&nbsp;{{currentBet.BetAmount}}
+        </td>
+        <td><button style="font-size: 22px" [ngClass]="canEdit(currentBet) ? 'btn btn-light fa fa-pencil-square-o':'btn btn-light fa fa-lock'" [disabled]="!canEdit(currentBet)" aria-hidden="true" (click)="onEditClick(currentBet)"></button><button style="font-size: 22px" class="btn btn-light fa fa-book" aria-hidden="true" (click)="checkOtherUsersBets(currentBet.MatchId)"></button></td>
+      </tr>
     </tbody>
   </table>
   <div *ngIf="currentBetDetails.length === 0">Please start BETTING!!!</div>
@@ -29,12 +29,8 @@
       <h4 class="modal-title" style="color: blue;">
         <i class="fa fa-edit" aria-hidden="true"></i>
         <b>{{editingBet.BettingTeamNameOrTeamA}}</b> vs <b>{{editingBet.WinningTeamNameOrTeamB}}</b>
-        <!--<img class="img-fluid" width="20" height="20" src="../../assets/icons/{{editingBet.BettingTeamNameOrTeamA}}.png" />
-  <img class="img-fluid" width="20" height="20" src="../../assets/icons/fire.gif" />
-  <img class="img-fluid" width="20" height="20" src="../../assets/icons/{{editingBet.WinningTeamNameOrTeamB}}.png" />-->
-        <!--<img class="img-fluid" width="15" height="15" src="../../assets/icons/date.svg" />-->
         <br /><i class="fa fa-calendar-check-o" aria-hidden="true"></i>{{editingBet.DisplayDate}}
-</h4>
+      </h4>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="onClose()">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -67,4 +63,24 @@
     </div>
   </div>
 </div>
+<div *ngIf="otherUsersBetsModal">
+  <div class="backdrop" (click)="onBetsModalClose()"></div>
+  <div class="modal-content alert-box-bets">
+    <div class="modal-header">
+      <h4 class="modal-title" style="color: red;"><b>Total Bets: {{otherUsersBets.length}}</b></h4>
+    </div>
+    <div class="modal-body" style="height:65vh">
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-action list-group-item-light" *ngFor="let bet of otherUsersBets">
+          <img class="img-fluid" width="20" height="20" src="../../assets/icons/{{bet.BettingTeamNameOrTeamA}}.png" /><b>{{bet.BettingTeamNameOrTeamA}}</b>&nbsp;&nbsp;<i class="fa fa-inr" aria-hidden="true"></i><b>{{bet.BetAmount}}</b> &nbsp;
+          <i class="fa fa-user-circle-o" aria-hidden="true"></i>&nbsp;<b>{{bet.UserName}}</b>
+        </li>
+      </ul>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onBetsModalClose()">Close</button>
+    </div>
+  </div>
+</div>
+
 

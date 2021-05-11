@@ -2,12 +2,12 @@
 
   <form #formRef="ngForm" (ngSubmit)="login(formRef)">
     <div class="row">
-      <div class="col">
+      <div class="col col-lg-6 col-xl-5 col-md-7">
         <h2 class="text-center"><!--<img src="../../assets/icons/login.gif"/>-->Login!!</h2>
       </div>
     </div>
     <div class="row">
-      <div class="col">
+      <div class="col col-lg-6 col-xl-5 col-md-7">
         <div class="input-group mb-3 mt-1">
           <div class="input-group-prepend">
             <span class="input-group-text"><i class="fa fa-user"></i></span>
@@ -23,7 +23,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col">
+      <div class="col col-lg-6 col-xl-5 col-md-7">
         <div class="form-group">
           <button type="submit" class="btn btn-success btn-lg" [disabled]="formRef.invalid"><i class="fa fa-key"></i> Login</button>
           <button type="button" class="btn btn-link" (click)="onForgotPasswordClick()">Forgot Password ?</button>
@@ -31,7 +31,7 @@
       </div>
       </div>
       <div class="row" *ngIf="error">
-        <div class="col">
+        <div class="col col-lg-6 col-xl-5 col-md-7">
           <div class="alert alert-danger alert-dismissible">
             <button type="button" class="close" (click)="clearError()">&times;</button>
             <strong> Username or Password is Incorrect!!</strong>
@@ -40,7 +40,7 @@
 
       </div>
       <div class="row">
-        <div class="col">
+        <div class="col col-lg-6 col-xl-5 col-md-7">
           <div class="alert alert-danger alert-dismissible" *ngIf="displayForgotPasswordLabel">
             <button type="button" class="close" (click)="onForgotPasswordClick()">&times;</button>
             <strong> Please contact the Administrator!</strong>
